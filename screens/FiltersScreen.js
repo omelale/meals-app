@@ -1,8 +1,8 @@
 import React from "react";
-import {StyleSheet} from "react-native";
+import {StyleSheet,View,Text} from "react-native";
 
 const FiltersScreen = () => {
-    return
+    return(<View><Text>The filters screen</Text></View>)
 }
 
 const styles = StyleSheet.create({
