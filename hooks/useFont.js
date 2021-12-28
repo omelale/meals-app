@@ -4,5 +4,6 @@ let useFonts;
 
 export default useFonts = async () =>
   await Font.loadAsync({
-    'fnt': require('../assets/fonts/Roboto-Black.ttf')
+    'OpenSans-Regular': require('../assets/fonts/OpenSans-Regular.ttf'),
+    'OpenSans-Bold': require('../assets/fonts/OpenSans-Bold.ttf')
   });
