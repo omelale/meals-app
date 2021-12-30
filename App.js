@@ -5,6 +5,9 @@ import useFonts from './hooks/useFont';
 import AppLoading from 'expo-app-loading';
 import { NavigationContainer } from '@react-navigation/native';
 import MealsNavigator from "./navigation/MealsNavigator";
+import {enableScreens} from "react-native-screens";
+
+enableScreens();
 
 const LoadFonts = async () => {
   await useFonts();
