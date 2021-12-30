@@ -3,7 +3,6 @@ import {FlatList, StyleSheet} from "react-native";
 import {CATEGORIES} from "../data/dummy-data";
 import CategoryGridTile from "../components/CategoryGridTile";
 
-
 const CategoriesScreen = (props) => {
     const renderCategory = (itemData) => {
         return (
@@ -20,14 +19,11 @@ const CategoriesScreen = (props) => {
     )
 }
 
-CategoriesScreen.navigationOptions = {};
-
 const styles = StyleSheet.create({
     screen: {
         flex: 1,
         padding:10
-    },
-
+    }
 })
 
 export default CategoriesScreen
