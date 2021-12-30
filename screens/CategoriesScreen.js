@@ -3,7 +3,7 @@ import {Button, StyleSheet, Text, View , FlatList} from "react-native";
 import {CATEGORIES} from "../data/dummy-data";
 
 const renderCategory = (itemData) => {
-    return (<View><Text>{itemData.item.title}</Text></View>)
+    return (<View style={styles.gridElement}><Text style={styles.gridElementText}>{itemData.item.title}</Text></View>)
 }
 
 const CategoriesScreen = ({navigation}) => {
@@ -31,6 +31,18 @@ const styles = StyleSheet.create({
     button: {
         padding: 20,
         marginTop: 10,
+    },
+    gridElement : {
+        flex:1,
+                height:160,
+        paddingVertical:10,
+        borderColor:'black',
+        borderWidth:1,
+        borderStyle:'solid',
+        margin: 5
+    },
+    gridElementText : {
+        textAlign: "center"
     }
 })
 
