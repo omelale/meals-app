@@ -8,7 +8,7 @@ const Stack = createStackNavigator();
 function NewNav() {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="CategoriesScreen" component={CategoriesScreen} />
+      <Stack.Screen name="CategoriesScreen" component={CategoriesScreen} options={{title:'Categories'}} />
       <Stack.Screen name="CategoryMeals" component={CategoryMeals} />
       <Stack.Screen name="MealDetailsScreen" component={MealDetailsScreen} />
     </Stack.Navigator>
