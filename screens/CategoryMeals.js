@@ -1,10 +1,18 @@
 import React from "react";
 import {StyleSheet, Text, View, Button} from "react-native";
+import {CATEGORIES} from "../data/dummy-data";
+
 
 const CategoryMeals = (props) => {
+    const catId = props.route.params.categoryId;
+    if(catId == undefined){
+        return  (<Text>Go back cuz route not ok</Text>)
+    }
+    const category = CATEGORIES.find(cat => cat.id === catId);
+    props.navigation.setOptions({ title: category.title })
     return (
         <View style={styles.screen}>
-            <Text>The category meals screen</Text>
+            <Text>Here you will find all the meals of the {category.title} category</Text>
             <View style={styles.button}>
                 <Button title='Check this meal out' onPress={
                     () => {

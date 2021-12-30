@@ -19,7 +19,7 @@ function NewNav() {
                 }
             }}
         />
-        <Stack.Screen name="CategoryMeals" component={CategoryMeals}/>
+        <Stack.Screen name="CategoryMeals" component={CategoryMeals}  />
         <Stack.Screen name="MealDetailsScreen" component={MealDetailsScreen}/>
     </Stack.Navigator>);
 }

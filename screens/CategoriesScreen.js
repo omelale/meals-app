@@ -11,9 +11,7 @@ const CategoriesScreen = (props) => {
                     () => {
                         props.navigation.navigate('CategoryMeals',
                             {
-                                params: {
-                                    categoryId: itemData.item.id
-                                }
+                                categoryId: itemData.item.id
                             })
                     }
                 }
