@@ -9,42 +9,30 @@ const Stack = createStackNavigator();
 
 function NewNav() {
     return (<Stack.Navigator>
-        <Stack.Screen
-            name="CategoriesScreen"
-            component={CategoriesScreen}
-            options={{
-                title: 'Categories',
-                headerStyle: styles.headerStyle,
-                headerTintColor: '#fff',
-                headerTitleStyle: styles.headerTitleStyle
-            }}
-        />
-        <Stack.Screen
-            name="CategoryMeals"
-            component={CategoryMeals}
-            options={{
-                headerStyle: styles.headerStyle,
-                headerTintColor: '#fff',
-                headerTitleStyle: styles.headerTitleStyle
-            }}
-        />
-        <Stack.Screen
-            name="MealDetailsScreen"
-            component={MealDetailsScreen}
-            options={{
-                headerStyle: styles.headerStyle,
-                headerTintColor: '#fff',
-                headerTitleStyle: styles.headerTitleStyle
-            }}
-        />
-    </Stack.Navigator>);
+            <Stack.Group screenOptions={{headerStyle: styles.headerStyle, headerTintColor: '#fff', headerTitleStyle: styles.headerTitleStyle}} >
+                <Stack.Screen
+                    name="CategoriesScreen"
+                    component={CategoriesScreen}
+                    options={{
+                        title: 'Categories',
+                    }}
+                />
+                <Stack.Screen
+                    name="CategoryMeals"
+                    component={CategoryMeals}
+                />
+                <Stack.Screen
+                    name="MealDetailsScreen"
+                    component={MealDetailsScreen}
+                />
+            </Stack.Group>
+        </Stack.Navigator>);
 }
 
 const styles = StyleSheet.create({
     headerStyle: {
         backgroundColor: colors.primaryColor,
-    },
-    headerTitleStyle: {
+    }, headerTitleStyle: {
         fontWeight: 'bold',
     }
 })
