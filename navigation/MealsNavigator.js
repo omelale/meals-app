@@ -7,28 +7,21 @@ import colors from "../constants/colors";
 const Stack = createStackNavigator();
 
 function NewNav() {
-    return (
-        <Stack.Navigator>
-            <Stack.Screen
-                name="CategoriesScreen"
-                component={CategoriesScreen}
-                options={
-                    {
-                        title: 'Categories',
-                        headerStyle: {
-                            backgroundColor: colors.primaryColor,
-                        },
-                        headerTintColor: '#fff',
-                        headerTitleStyle: {
-                            fontWeight: 'bold',
-                        }
-                    }
+    return (<Stack.Navigator>
+        <Stack.Screen
+            name="CategoriesScreen"
+            component={CategoriesScreen}
+            options={{
+                title: 'Categories', headerStyle: {
+                    backgroundColor: colors.primaryColor,
+                }, headerTintColor: '#fff', headerTitleStyle: {
+                    fontWeight: 'bold',
                 }
-            />
-            <Stack.Screen name="CategoryMeals" component={CategoryMeals}/>
-            <Stack.Screen name="MealDetailsScreen" component={MealDetailsScreen}/>
-        </Stack.Navigator>
-    );
+            }}
+        />
+        <Stack.Screen name="CategoryMeals" component={CategoryMeals}/>
+        <Stack.Screen name="MealDetailsScreen" component={MealDetailsScreen}/>
+    </Stack.Navigator>);
 }
 
 export default NewNav
