@@ -1,5 +1,7 @@
 import React from "react";
 import {Button, StyleSheet, Text, View , FlatList} from "react-native";
+import {CATEGORIES} from "../data/dummy-data";
+
 
 const CategoriesScreen = ({navigation}) => {
     return (
