@@ -1,6 +1,7 @@
 import React from "react";
 import {FlatList, StyleSheet, Text, View,TouchableOpacity} from "react-native";
 import {CATEGORIES} from "../data/dummy-data";
+import colors from "../constants/colors";
 
 
 const CategoriesScreen = (props) => {
@@ -16,7 +17,6 @@ const CategoriesScreen = (props) => {
 }
 
 CategoriesScreen.navigationOptions = {
-
 };
 
 const styles = StyleSheet.create({
