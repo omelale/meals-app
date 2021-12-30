@@ -1,33 +1,41 @@
 import React from "react";
-import {View, StyleSheet,TouchableOpacity, Text} from "react-native";
+import {StyleSheet, Text, TouchableOpacity, View} from "react-native";
 
 const CategoryGridTile = (props) => {
     return (
         <TouchableOpacity
-                onPress={ props.onTouch }
-                style={styles.gridElement}
+            onPress={props.onTouch}
+            style={{...styles.gridElement, backgroundColor: props.color }}
         >
-                <View>
-                    <Text style={styles.gridElementText}>
-                        {props.title}
-                    </Text>
-                </View>
-            </TouchableOpacity>
+            <View style={styles.textContainer}>
+                <Text style={styles.gridElementText}>
+                    {props.title}
+                </Text>
+            </View>
+        </TouchableOpacity>
     )
 }
 
 const styles = StyleSheet.create({
     gridElement: {
+        padding:10,
         flex: 1,
         height: 160,
         paddingVertical: 10,
-        borderColor: 'black',
-        borderWidth: 1,
-        borderStyle: 'solid',
-        margin: 5
+        borderRadius:10,
+        margin: 5,
+        elevation:6
+    },
+    textContainer : {
+        flex:1,
+        justifyContent:'center',
+        alignContent:'center',
     },
     gridElementText: {
-        textAlign: "center"
+        textAlign: "center",
+        fontSize:20,
+        fontWeight:'bold',
+        fontFamily: 'OpenSans-Bold'
     }
 })
 
