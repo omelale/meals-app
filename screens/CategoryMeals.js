@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {StyleSheet, Text, View, Button} from "react-native";
 import {CATEGORIES} from "../data/dummy-data";
 
@@ -9,7 +9,9 @@ const CategoryMeals = (props) => {
         return  (<Text>Go back cuz route not ok</Text>)
     }
     const category = CATEGORIES.find(cat => cat.id === catId);
-    props.navigation.setOptions({ title: category.title })
+    useEffect(()=>{
+            props.navigation.setOptions({ title: category.title })
+    })
     return (
         <View style={styles.screen}>
             <Text>Here you will find all the meals of the {category.title} category</Text>
