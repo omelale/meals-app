@@ -2,6 +2,9 @@ import React from "react";
 import {Button, StyleSheet, Text, View , FlatList} from "react-native";
 import {CATEGORIES} from "../data/dummy-data";
 
+const renderCategory = (itemData) => {
+    return (<View><Text>{itemData.item.title}</Text></View>)
+}
 
 const CategoriesScreen = ({navigation}) => {
     return (
@@ -15,7 +18,7 @@ const CategoriesScreen = ({navigation}) => {
         //         }/>
         //     </View>
         // </View>
-        <FlatList numColumns={2}/>
+        <FlatList data={CATEGORIES} renderItem={renderCategory} numColumns={2}/>
     )
 }
 
