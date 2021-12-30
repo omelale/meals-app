@@ -15,6 +15,10 @@ const CategoriesScreen = (props) => {
     )
 }
 
+CategoriesScreen.navigationOptions = {
+
+};
+
 const styles = StyleSheet.create({
     screen: {
         flex: 1,
