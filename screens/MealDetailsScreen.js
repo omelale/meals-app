@@ -1,7 +1,12 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {StyleSheet,View,Text,Button} from "react-native";
 
 const MealDetailsScreen = (props) => {
+    const meal = props.route.params.meal;
+    useEffect(() => {
+        props.navigation.setOptions({title: meal.title})
+    })
+
     return(
         <View style={styles.screen}>
             <Text>The Meal details screen</Text>
