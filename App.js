@@ -1,43 +1,44 @@
-import {StatusBar} from 'expo-status-bar';
 import {useState} from "react";
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet} from 'react-native';
 import useFonts from './hooks/useFont';
 import AppLoading from 'expo-app-loading';
-import { NavigationContainer } from '@react-navigation/native';
-import MealsNavigator from "./navigation/MealsNavigator";
+import {NavigationContainer} from '@react-navigation/native';
+import {NewNav} from "./navigation/MealsNavigator";
 import {enableScreens} from "react-native-screens";
 
 enableScreens();
 
 const LoadFonts = async () => {
-  await useFonts();
+    await useFonts();
 }
 export default function App() {
-  const [IsReady, SetIsReady] = useState(false);
+    const [IsReady, SetIsReady] = useState(false);
 
-  if (!IsReady) {
+    if (!IsReady) {
+        return (
+            <AppLoading
+                startAsync={LoadFonts}
+                onFinish={() => SetIsReady(true)}
+                onError={(err) => console.log(err)}
+            />
+        );
+    }
+
     return (
-        <AppLoading
-            startAsync={LoadFonts}
-            onFinish={() => SetIsReady(true)}
-            onError={(err) => console.log(err)}
-        />
+        <NavigationContainer>
+            <NewNav/>
+        </NavigationContainer>
     );
-  }
-
-  return <NavigationContainer>
-      <MealsNavigator />
-    </NavigationContainer>;
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  test: {
-    fontFamily: 'OpenSans-Regular'
-  }
+    container: {
+        flex: 1,
+        backgroundColor: '#fff',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    test: {
+        fontFamily: 'OpenSans-Regular'
+    }
 });
