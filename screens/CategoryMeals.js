@@ -13,8 +13,8 @@ const CategoryMeals = (props) => {
             <MealGridTile
                 title={itemData.item.title}
                 affordability={itemData.item.affordability}
-                onTouch={() => {
-                props.navigation.navigate('CategoryMeals',{categoryId: itemData.item.id});
+                onSelectMeal={() => {
+                props.navigation.navigate('MealDetailsScreen',{categoryId: itemData.item.id});
             }}/>
         )
     }
