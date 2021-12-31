@@ -1,5 +1,5 @@
 import React, {useEffect} from "react";
-import { StyleSheet, FlatList} from "react-native";
+import {FlatList, StyleSheet} from "react-native";
 import {CATEGORIES, MEALS} from "../data/dummy-data";
 import MealGridTile from "../components/MealGridTile";
 
@@ -13,9 +13,12 @@ const CategoryMeals = (props) => {
             <MealGridTile
                 title={itemData.item.title}
                 affordability={itemData.item.affordability}
+                duration={itemData.item.duration}
+                complexity={itemData.item.complexity}
+                imageUrl={itemData.item.imageUrl}
                 onSelectMeal={() => {
-                props.navigation.navigate('MealDetailsScreen',{categoryId: itemData.item.id});
-            }}/>
+                    props.navigation.navigate('MealDetailsScreen', {categoryId: itemData.item.id});
+                }}/>
         )
     }
 
@@ -23,22 +26,14 @@ const CategoryMeals = (props) => {
         props.navigation.setOptions({title: category.title})
     })
     return (
-        <FlatList data={meals} renderItem={renderMeal} numColumns={1} style={styles.screen}/>
-        // <View style={styles.screen}>
-        //     <Text>Here you will find all the meals of the {category.title} category</Text>
-        //     <View style={styles.button}>
-        //         <Button title='Check this meal out' onPress={() => {
-        //             props.navigation.navigate('MealDetailsScreen')
-        //         }}/>
-        //     </View>
-        // </View>
+        <FlatList data={meals} renderItem={renderMeal} numColumns={2} style={styles.screen}/>
     )
 }
 
 const styles = StyleSheet.create({
     screen: {
         flex: 1,
-        padding:10
+        padding: 10
     }
 })
 
