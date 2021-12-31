@@ -4,7 +4,8 @@ import {StyleSheet,View,Text,Button} from "react-native";
 const MealDetailsScreen = (props) => {
     const meal = props.route.params.meal;
     useEffect(() => {
-        props.navigation.setOptions({title: meal.title})
+        props.navigation.setOptions({title: meal.title});
+        // this can be used in order to change the navigation option directly from the component props.navigation.setOptions({  headerRight: () => <Button title='top top' /> })
     })
 
     return(
