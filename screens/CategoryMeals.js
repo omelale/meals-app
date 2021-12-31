@@ -17,7 +17,7 @@ const CategoryMeals = (props) => {
                 complexity={itemData.item.complexity}
                 imageUrl={itemData.item.imageUrl}
                 onSelectMeal={() => {
-                    props.navigation.navigate('MealDetailsScreen', {categoryId: itemData.item.id, meal:itemData.item});
+                    props.navigation.navigate('MealDetailsScreen', {meal:itemData.item});
                 }}/>
         )
     }
