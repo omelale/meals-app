@@ -1,5 +1,5 @@
 import React from "react";
-import {View,Text, StyleSheet, TouchableNativeFeedback, TouchableOpacity,Platform} from "react-native";
+import {Platform, StyleSheet, Text, TouchableNativeFeedback, TouchableOpacity, View} from "react-native";
 
 const MealGridTile = (props) => {
     let TouchableComponent = TouchableOpacity;
@@ -7,12 +7,18 @@ const MealGridTile = (props) => {
         TouchableComponent = TouchableNativeFeedback;
     }
 
-    return (<View style={styles.gridElement}><TouchableComponent onPress={props.onSelectMeal}><Text>{props.title}</Text></TouchableComponent></View>)
+    return (
+        <View style={styles.gridElement}>
+            <TouchableComponent onPress={props.onSelectMeal}>
+                <Text>{props.title}</Text>
+            </TouchableComponent>
+        </View>
+    )
 }
 
 const styles = StyleSheet.create({
     gridElement: {
-        flex: 1, height: 160, borderRadius: 10, margin: 5, elevation: 6, overflow:"hidden"
+        flex: 1, height: 160, borderRadius: 10, margin: 5, elevation: 6, overflow: "hidden"
     }
 })
 
