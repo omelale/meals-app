@@ -13,7 +13,7 @@ import {Ionicons} from "@expo/vector-icons";
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
-
+const StackFavs = createStackNavigator();
 
 function Home() {
     return (
@@ -28,7 +28,7 @@ function Home() {
                     } else if (route.name === 'Favourites') {
                         iconName = focused ? 'ios-star' : 'ios-star-outline';
                     }
-                    size=27;
+                    size = 27;
                     // You can return any component that you like here!
                     return <Ionicons name={iconName} size={size} color={color}/>;
                 },
@@ -37,7 +37,7 @@ function Home() {
             })}
         >
             <Tab.Screen name="Categories" component={NewNav} options={{headerShown: false}}/>
-            <Tab.Screen name="Favourites" component={FavouritesScreen} options={{headerShown: false}}/>
+            <Tab.Screen name="Favourites" component={FavsStack} options={{headerShown: false}}/>
         </Tab.Navigator>
     );
 }
@@ -78,6 +78,25 @@ function NewNav() {
     </Stack.Navigator>);
 }
 
+function FavsStack() {
+    return (
+        <StackFavs.Navigator>
+            <StackFavs.Group screenOptions={{
+                headerStyle: styles.headerStyle,
+                headerTintColor: '#fff',
+                headerTitleStyle: styles.headerTitleStyle
+            }}>
+
+                <StackFavs.Screen name="Favourites"
+                                  component={FavouritesScreen}
+                                  options={{
+                                      title: 'Favourite meals',
+                                  }}/>
+            </StackFavs.Group>
+        </StackFavs.Navigator>
+    );
+}
+
 
 const styles = StyleSheet.create({
     headerStyle: {
@@ -87,4 +106,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export {NewNav, Home}
+export {NewNav, Home, FavsStack}
