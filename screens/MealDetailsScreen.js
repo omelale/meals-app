@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {Button, ScrollView, StyleSheet, Text, View, Image} from 'react-native';
+import {Image, ScrollView, StyleSheet, Text, View} from 'react-native';
 
 const ListItem = props => {
     return (<View style={styles.listItem}>
@@ -14,24 +14,18 @@ const MealDetailsScreen = (props) => {
         // this can be used in order to change the navigation option directly from the component props.navigation.setOptions({  headerRight: () => <Button title='top top' /> })
     })
 
-    return (
-        <ScrollView>
-            <Image source={{ uri: meal.imageUrl }} style={styles.image} />
-            <View style={styles.details}>
-                <Text>{meal.duration}m</Text>
-                <Text>{meal.complexity.toUpperCase()}</Text>
-                <Text>{meal.affordability.toUpperCase()}</Text>
-            </View>
-            <Text style={styles.title}>Ingredients</Text>
-            {meal.ingredients.map(ingredient => (
-                <ListItem key={ingredient}>{ingredient}</ListItem>
-            ))}
-            <Text style={styles.title}>Steps</Text>
-            {meal.steps.map(step => (
-                <ListItem key={step}>{step}</ListItem>
-            ))}
-        </ScrollView>
-    )
+    return (<ScrollView>
+        <Image source={{uri: meal.imageUrl}} style={styles.image}/>
+        <View style={styles.details}>
+            <Text>{meal.duration}m</Text>
+            <Text>{meal.complexity.toUpperCase()}</Text>
+            <Text>{meal.affordability.toUpperCase()}</Text>
+        </View>
+        <Text style={styles.title}>Ingredients</Text>
+        {meal.ingredients.map(ingredient => (<ListItem key={ingredient}>{ingredient}</ListItem>))}
+        <Text style={styles.title}>Steps</Text>
+        {meal.steps.map(step => (<ListItem key={step}>{step}</ListItem>))}
+    </ScrollView>)
 }
 
 const styles = StyleSheet.create({
