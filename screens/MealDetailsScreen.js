@@ -1,5 +1,11 @@
-import React, {useEffect} from "react";
-import {StyleSheet,View,Text,Button} from "react-native";
+import React, {useEffect} from 'react';
+import {Button, ScrollView, StyleSheet, Text, View, Image} from 'react-native';
+
+const ListItem = props => {
+    return (<View style={styles.listItem}>
+        <Text>{props.children}</Text>
+    </View>);
+};
 
 const MealDetailsScreen = (props) => {
     const meal = props.route.params.meal;
@@ -8,29 +14,35 @@ const MealDetailsScreen = (props) => {
         // this can be used in order to change the navigation option directly from the component props.navigation.setOptions({  headerRight: () => <Button title='top top' /> })
     })
 
-    return(
-        <View style={styles.screen}>
-            <Text>The Meal details screen</Text>
-            <View style={styles.button}>
-                <Button title='Go back to categories' onPress={
-                    () => {
-                        props.navigation.popToTop()
-                    }
-                }/>
+    return (
+        <ScrollView>
+            <Image source={{ uri: meal.imageUrl }} style={styles.image} />
+            <View style={styles.details}>
+                <Text>{meal.duration}m</Text>
+                <Text>{meal.complexity.toUpperCase()}</Text>
+                <Text>{meal.affordability.toUpperCase()}</Text>
             </View>
-        </View>
+            <Text style={styles.title}>Ingredients</Text>
+            {meal.ingredients.map(ingredient => (
+                <ListItem key={ingredient}>{ingredient}</ListItem>
+            ))}
+            <Text style={styles.title}>Steps</Text>
+            {meal.steps.map(step => (
+                <ListItem key={step}>{step}</ListItem>
+            ))}
+        </ScrollView>
     )
 }
 
 const styles = StyleSheet.create({
-    screen : {
-        flex:1,
-        justifyContent:'center',
-        alignItems : 'center'
-    },
-    button: {
-        padding: 20,
-        marginTop: 10,
+    image: {
+        width: '100%', height: 200
+    }, details: {
+        flexDirection: 'row', padding: 15, justifyContent: 'space-around'
+    }, title: {
+        fontFamily: 'open-sans-bold', fontSize: 22, textAlign: 'center'
+    }, listItem: {
+        marginVertical: 10, marginHorizontal: 20, borderColor: '#ccc', borderWidth: 1, padding: 10
     }
 })
 
