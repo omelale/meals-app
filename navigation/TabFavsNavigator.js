@@ -8,18 +8,14 @@ import {StyleSheet} from "react-native";
 const Tab = createBottomTabNavigator();
 
 function TabFavsNavigator() {
-    return (
-        <Tab.Group screenOptions={{
-            headerStyle: styles.headerStyle,
-            headerTintColor: '#fff',
-            headerTitleStyle: styles.headerTitleStyle
-        }}>
-            <Tab.Navigator>
-                <Tab.Screen name="Categories" component={CategoriesScreen}/>
-                <Tab.Screen name="Favourite" component={FavouritesScreen}/>
-            </Tab.Navigator>
-        </Tab.Group>
-    );
+    return (<Tab.Group screenOptions={{
+        headerStyle: styles.headerStyle, headerTintColor: '#fff', headerTitleStyle: styles.headerTitleStyle
+    }}>
+        <Tab.Navigator>
+            <Tab.Screen name="Categories" component={CategoriesScreen}/>
+            <Tab.Screen name="Favourite" component={FavouritesScreen}/>
+        </Tab.Navigator>
+    </Tab.Group>);
 }
 
 const styles = StyleSheet.create({
