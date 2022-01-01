@@ -8,7 +8,6 @@ import {HeaderButtons, Item} from "react-navigation-header-buttons";
 import HeaderButton from "../components/HeaderButton";
 import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
 import FavouritesScreen from "../screens/FavouritesScreen";
-import TabFavsNavigator from "./TabFavsNavigator";
 
 
 const Stack = createStackNavigator();
@@ -17,8 +16,8 @@ const Tab = createBottomTabNavigator();
 function Home() {
     return (
         <Tab.Navigator>
-            <Tab.Screen name="Categories" component={CategoriesScreen}/>
-            <Tab.Screen name="Favourite" component={FavouritesScreen}/>
+            <Tab.Screen name="Categories" component={NewNav} options={{headerShown: false}}/>
+            <Tab.Screen name="Favourite" component={FavouritesScreen} options={{headerShown: false}}/>
         </Tab.Navigator>
     );
 }
@@ -33,7 +32,7 @@ function NewNav() {
         }}>
             <Stack.Screen
                 name="CategoriesScreen"
-                component={Home}
+                component={CategoriesScreen}
                 options={{
                     title: 'Categories',
                 }}
@@ -68,4 +67,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export {NewNav, TabFavsNavigator}
+export {NewNav, Home}
