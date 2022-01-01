@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
     }, details: {
         flexDirection: 'row', padding: 15, justifyContent: 'space-around'
     }, title: {
-        fontFamily: 'open-sans-bold', fontSize: 22, textAlign: 'center'
+        fontFamily: 'OpenSans-Bold', fontSize: 22, textAlign: 'center'
     }, listItem: {
         marginVertical: 10, marginHorizontal: 20, borderColor: '#ccc', borderWidth: 1, padding: 10
     }
