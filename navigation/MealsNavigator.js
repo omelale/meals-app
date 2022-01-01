@@ -81,17 +81,32 @@ function NewNav() {
 function FavsStack() {
     return (
         <StackFavs.Navigator>
-            <StackFavs.Group screenOptions={{
-                headerStyle: styles.headerStyle,
-                headerTintColor: '#fff',
-                headerTitleStyle: styles.headerTitleStyle
-            }}>
-
-                <StackFavs.Screen name="Favourites"
-                                  component={FavouritesScreen}
-                                  options={{
-                                      title: 'Favourite meals',
-                                  }}/>
+            <StackFavs.Group
+                screenOptions={{
+                    headerStyle: styles.headerStyle,
+                    headerTintColor: '#fff',
+                    headerTitleStyle: styles.headerTitleStyle
+                }}>
+                <StackFavs.Screen
+                    name="Favourites"
+                    component={FavouritesScreen}
+                    options={{
+                        title: 'Favourite meals',
+                    }}
+                />
+                <StackFavs.Screen
+                    name="MealDetailsScreen"
+                    component={MealDetailsScreen}
+                    options={{
+                        headerRight: () => (
+                            <HeaderButtons HeaderButtonComponent={HeaderButton}>
+                                <Item iconName='ios-star' onPress={() => {
+                                    console.log()
+                                }}/>
+                            </HeaderButtons>
+                        ),
+                    }}
+                />
             </StackFavs.Group>
         </StackFavs.Navigator>
     );
