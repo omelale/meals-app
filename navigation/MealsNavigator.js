@@ -9,12 +9,10 @@ import HeaderButton from "../components/HeaderButton";
 import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
 import FavouritesScreen from "../screens/FavouritesScreen";
 import {Ionicons} from "@expo/vector-icons";
-import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
-const TabMaterial = createMaterialBottomTabNavigator();
 
 
 function Home() {
