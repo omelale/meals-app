@@ -28,6 +28,7 @@ function Home() {
                     } else if (route.name === 'Favourites') {
                         iconName = focused ? 'ios-star' : 'ios-star-outline';
                     }
+                    size=27;
                     // You can return any component that you like here!
                     return <Ionicons name={iconName} size={size} color={color}/>;
                 },
