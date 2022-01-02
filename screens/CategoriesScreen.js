@@ -5,24 +5,19 @@ import CategoryGridTile from "../components/CategoryGridTile";
 
 const CategoriesScreen = (props) => {
     const renderCategory = (itemData) => {
-        return (
-            <CategoryGridTile
-                title={itemData.item.title}
-                color={itemData.item.color}
-                onTouch={() => {
-                props.navigation.navigate('CategoryMeals',{categoryId: itemData.item.id});
-            }}/>
-        )
+        return (<CategoryGridTile
+            title={itemData.item.title}
+            color={itemData.item.color}
+            onTouch={() => {
+                props.navigation.navigate('CategoryMeals', {categoryId: itemData.item.id});
+            }}/>)
     }
-    return (
-        <FlatList data={CATEGORIES} renderItem={renderCategory} numColumns={2} style={styles.screen}/>
-    )
+    return (<FlatList data={CATEGORIES} renderItem={renderCategory} numColumns={2} style={styles.screen}/>)
 }
 
 const styles = StyleSheet.create({
     screen: {
-        flex: 1,
-        padding:10
+        flex: 1, padding: 10
     }
 })
 
