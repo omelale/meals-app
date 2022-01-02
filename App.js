@@ -5,14 +5,14 @@ import AppLoading from 'expo-app-loading';
 import {NavigationContainer} from '@react-navigation/native';
 import {Home} from "./navigation/MealsNavigator";
 import {enableScreens} from "react-native-screens";
-import {createStore, combineReducers} from "redux";
+import {combineReducers, createStore} from "redux";
 import mealsReducer from "./store/reducers/meals";
 import {Provider} from "react-redux";
 
 enableScreens();
 
 const rootReducer = combineReducers({
-   meals : mealsReducer
+    meals: mealsReducer
 });
 
 const store = createStore(rootReducer);
