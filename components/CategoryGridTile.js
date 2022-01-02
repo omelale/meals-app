@@ -22,7 +22,7 @@ const CategoryGridTile = (props) => {
 
 const styles = StyleSheet.create({
     gridElement: {
-        flex: 1, height: 160, borderRadius: 10, margin: 5, elevation: 6, overflow:"hidden"
+        flex: 1, height: 160, borderRadius: 10, margin: 5, elevation: 6, overflow: "hidden"
     }, textContainer: {
         flex: 1, justifyContent: 'center', alignContent: 'center',
     }, gridElementText: {
