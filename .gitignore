@@ -10,6 +10,7 @@ npm-debug.*
 *.orig.*
 web-build/
 steps.txt
+try.pod
 
 # macOS
 .DS_Store
