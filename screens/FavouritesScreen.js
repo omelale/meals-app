@@ -1,11 +1,11 @@
 import React from "react";
 import {FlatList, StyleSheet} from "react-native";
-import {MEALS} from "../data/dummy-data";
 import MealGridTile from "../components/MealGridTile";
+import {useSelector} from "react-redux";
 
 
 const FavouritesScreen = (props) => {
-    const meals = MEALS.slice(0, 2);
+    const meals = useSelector((state)=>state.meals.favouriteMeals);
     const renderMeal = (itemData) => {
         return (
             <MealGridTile

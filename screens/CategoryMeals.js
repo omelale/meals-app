@@ -1,13 +1,15 @@
 import React, {useEffect} from "react";
 import {FlatList, StyleSheet} from "react-native";
-import {CATEGORIES, MEALS} from "../data/dummy-data";
+import {CATEGORIES} from "../data/dummy-data";
 import MealGridTile from "../components/MealGridTile";
+import {useSelector} from "react-redux";
 
 
 const CategoryMeals = (props) => {
     const catId = props.route.params.categoryId;
     const category = CATEGORIES.find(cat => cat.id === catId);
-    const meals = MEALS.filter(meal => meal.categoryIds.indexOf(catId) >= 0);
+    const availableMeals = useSelector((state) => state.meals.meals)
+    const meals = availableMeals.filter(meal => meal.categoryIds.indexOf(catId) >= 0);
     const renderMeal = (itemData) => {
         return (
             <MealGridTile
