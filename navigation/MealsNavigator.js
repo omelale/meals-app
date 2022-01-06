@@ -60,19 +60,19 @@ function NewNav() {
             <Stack.Screen
                 name="CategoryMeals"
                 component={CategoryMeals}
+                options={({route})=>({title:route.params.name})}
             />
             <Stack.Screen
                 name="MealDetailsScreen"
                 component={MealDetailsScreen}
-                options={{
-                    headerRight: () => (
+                options={({route})=>({
+                    title:route.params.meal.title,
+                    headerRight: () =>
                         <HeaderButtons HeaderButtonComponent={HeaderButton}>
-                            <Item iconName='ios-star' onPress={() => {
-                                console.log()
-                            }}/>
+                            <Item iconName='ios-star' onPress={()=>{}}/>
                         </HeaderButtons>
-                    ),
-                }}
+                    ,
+                })}
             />
         </Stack.Group>
     </Stack.Navigator>);

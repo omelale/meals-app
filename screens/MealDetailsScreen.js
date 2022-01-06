@@ -9,10 +9,10 @@ const ListItem = props => {
 
 const MealDetailsScreen = (props) => {
     const meal = props.route.params.meal;
-    useEffect(() => {
-        props.navigation.setOptions({title: meal.title});
-        // this can be used in order to change the navigation option directly from the component props.navigation.setOptions({  headerRight: () => <Button title='top top' /> })
-    })
+    // useEffect(() => {
+    //     props.navigation.setOptions({title: meal.title});
+    //     // this can be used in order to change the navigation option directly from the component props.navigation.setOptions({  headerRight: () => <Button title='top top' /> })
+    // })
 
     return (<ScrollView>
         <Image source={{uri: meal.imageUrl}} style={styles.image}/>
