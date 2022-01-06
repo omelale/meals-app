@@ -1,5 +1,5 @@
 import React from "react";
-import {FlatList, StyleSheet} from "react-native";
+import {FlatList, StyleSheet,Text} from "react-native";
 import MealGridTile from "../components/MealGridTile";
 import {useSelector} from "react-redux";
 
@@ -20,7 +20,7 @@ const FavouritesScreen = (props) => {
         )
     }
     return (
-        <FlatList data={meals} renderItem={renderMeal} numColumns={2} style={styles.screen}/>
+        <FlatList data={meals} renderItem={renderMeal} numColumns={2} style={styles.screen} ListEmptyComponent={()=>{return(<Text>You have not added any meals to the favourites.</Text>)}}/>
     )
 }
 
