@@ -11,11 +11,14 @@ import {Provider} from "react-redux";
 
 enableScreens();
 
+//create root reducer from all the reducers present in the app
 const rootReducer = combineReducers({
     meals: mealsReducer
 });
 
+//initialize the store with the rootReducer object
 const store = createStore(rootReducer);
+//this store will be passed to the provider component
 
 const LoadFonts = async () => {
     await useFonts();
