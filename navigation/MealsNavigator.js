@@ -97,15 +97,14 @@ function FavsStack() {
                 <StackFavs.Screen
                     name="MealDetailsScreen"
                     component={MealDetailsScreen}
-                    options={{
-                        headerRight: () => (
-                            <HeaderButtons HeaderButtonComponent={HeaderButton}>
-                                <Item iconName='ios-star' onPress={() => {
-                                    console.log()
-                                }}/>
-                            </HeaderButtons>
-                        ),
-                    }}
+                    options={({route})=>({
+                    title:route.params.meal.title,
+                    headerRight: () =>
+                        <HeaderButtons HeaderButtonComponent={HeaderButton}>
+                            <Item iconName='ios-star' onPress={()=>{}}/>
+                        </HeaderButtons>
+                    ,
+                })}
                 />
             </StackFavs.Group>
         </StackFavs.Navigator>
