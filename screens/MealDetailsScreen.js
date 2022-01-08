@@ -1,5 +1,7 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {Image, ScrollView, StyleSheet, Text, View} from 'react-native';
+import {HeaderButtons, Item} from "react-navigation-header-buttons";
+import HeaderButton from "../components/HeaderButton";
 
 const ListItem = props => {
     return (<View style={styles.listItem}>
@@ -9,6 +11,17 @@ const ListItem = props => {
 
 const MealDetailsScreen = (props) => {
     const meal = props.route.params.meal;
+    React.useLayoutEffect(() => {
+        props.navigation.setOptions({
+            headerRight: () => (
+                <HeaderButtons HeaderButtonComponent={HeaderButton}>
+                    <Item iconName='ios-star' onPress={() => {console.log('click from within')
+                    }}/>
+                </HeaderButtons>
+            ),
+        });
+    }, [props.navigation]);
+
     // useEffect(() => {
     //     props.navigation.setOptions({title: meal.title});
     //     // this can be used in order to change the navigation option directly from the component props.navigation.setOptions({  headerRight: () => <Button title='top top' /> })
