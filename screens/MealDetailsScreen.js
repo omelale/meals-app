@@ -2,7 +2,7 @@ import React from 'react';
 import {Image, ScrollView, StyleSheet, Text, View} from 'react-native';
 import {HeaderButtons, Item} from "react-navigation-header-buttons";
 import HeaderButton from "../components/HeaderButton";
-import {useDispatch} from "react-redux";
+import {useDispatch,useSelector} from "react-redux";
 import {addToFavourites} from "../store/actions/meals"
 
 const ListItem = props => {
@@ -12,17 +12,19 @@ const ListItem = props => {
 };
 
 const MealDetailsScreen = (props) => {
+    const favMeals = useSelector((state) => state.meals.favouriteMeals)
     const meal = props.route.params.meal;
+    const isFav = favMeals.some(favMeal=>favMeal.id === meal.id );
     const dispatch = useDispatch();
     React.useLayoutEffect(() => {
         props.navigation.setOptions({
             headerRight: () => (
                 <HeaderButtons HeaderButtonComponent={HeaderButton}>
-                    <Item iconName='ios-star' onPress={() => {dispatch(addToFavourites(meal.id))}}/>
+                    <Item iconName= {isFav ? 'ios-star' : 'ios-star-outline'} onPress={() => {dispatch(addToFavourites(meal.id))}}/>
                 </HeaderButtons>
             ),
         });
-    }, [props.navigation,meal]);
+    }, [props.navigation,meal,isFav]);
 
     // useEffect(() => {
     //     props.navigation.setOptions({title: meal.title});
