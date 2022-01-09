@@ -2,6 +2,8 @@ import React from 'react';
 import {Image, ScrollView, StyleSheet, Text, View} from 'react-native';
 import {HeaderButtons, Item} from "react-navigation-header-buttons";
 import HeaderButton from "../components/HeaderButton";
+import {useDispatch} from "react-redux";
+import {addToFavourites} from "../store/actions/meals"
 
 const ListItem = props => {
     return (<View style={styles.listItem}>
@@ -11,16 +13,16 @@ const ListItem = props => {
 
 const MealDetailsScreen = (props) => {
     const meal = props.route.params.meal;
+    const dispatch = useDispatch();
     React.useLayoutEffect(() => {
         props.navigation.setOptions({
             headerRight: () => (
                 <HeaderButtons HeaderButtonComponent={HeaderButton}>
-                    <Item iconName='ios-star' onPress={() => {console.log('click from within')
-                    }}/>
+                    <Item iconName='ios-star' onPress={() => {dispatch(addToFavourites(meal.id))}}/>
                 </HeaderButtons>
             ),
         });
-    }, [props.navigation]);
+    }, [props.navigation,meal]);
 
     // useEffect(() => {
     //     props.navigation.setOptions({title: meal.title});

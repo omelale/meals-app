@@ -13,9 +13,10 @@ const mealsReducer = (state = initialState, action) => {
         case 'ADDTOFAVOURITES' : {
             const existingIndex = state.favouriteMeals.findIndex(meal => meal.id === action.mealId);
             if(existingIndex >= 0){
-                //need to remove the meal from favourites
-                const newFavs = [...state.favouriteMeals].splice(existingIndex,1);
-                return {...state, favouriteMeals: newFavs}
+                const newFavs = [...state.favouriteMeals];
+                // const removed = newFavs.splice(existingIndex,1);
+                const removed = newFavs.filter(meal => meal.id !== action.mealId)
+                return {...state, favouriteMeals: removed}
             } else {
                 return {...state,favouriteMeals: state.favouriteMeals.concat(state.meals.find(meal=>meal.id===action.mealId))}
             }
